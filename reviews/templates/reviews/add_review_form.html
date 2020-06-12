@@ -1,0 +1,12 @@
+{% extends "reviews/base.html" %}
+{% load static %}
+{% block add_reviews_form %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<div id="add_reviews_form">
+<form action="{% url 'reviews:add_review_action' %}" method="post">
+{% csrf_token %}
+    <label for="review_text">Review text</label><textarea name="review_text" id="review_text">Enter text here...</textarea>
+<input type="submit" value="add_review">
+</form>
+</div>
+{% endblock %}
